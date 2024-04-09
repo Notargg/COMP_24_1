@@ -41,7 +41,7 @@ VIRGULA	:	','
 COMENTARIO_NAO_FECHADO: '{' ~('\n'|'\r'|'}')* '\r'? '\n'
     ;
 
-CADEIA_NAO_FECHADA: '"' ( ~('\n') )*?
+CADEIA_NAO_FECHADA: '"' ( ~('\n'|'"') )*?
     ;
 
 ERRO: .
