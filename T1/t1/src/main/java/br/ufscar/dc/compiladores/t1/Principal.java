@@ -19,12 +19,12 @@ public class Principal {
                 String nomeToken = AlgumaLexer.VOCABULARY.getDisplayName(t.getType());
                 if(nomeToken.equals("ERRO")) 
                 {
-                    System.out.println("Erro na linha "+t.getLine()+": "+t.getText());
+                    System.out.println("Erro na linha "+t.getLine()+": "+t.getText() + " - simbolo nao identificado");
                     break;
                 } 
                 else if(nomeToken.equals("CADEIA_NAO_FECHADA")) 
                 {
-                    System.out.println("Cadeia não fechada na linha "+t.getLine());
+                    System.out.println("Cadeia não fechada na linha "+t.getLine() + " - cadeia literal nao fechada");
                     break;
                 } 
                 else 
