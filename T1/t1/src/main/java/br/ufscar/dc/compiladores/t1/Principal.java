@@ -14,19 +14,29 @@ public class Principal {
             AlgumaLexer lex = new AlgumaLexer(cs);
 
             Token t = null;
-            while ((t = lex.nextToken()).getType() != Token.EOF) {
+            while ((t = lex.nextToken()).getType() != Token.EOF) 
+            {
                 String nomeToken = AlgumaLexer.VOCABULARY.getDisplayName(t.getType());
-                        if(nomeToken.equals("ERRO")) {
-                      System.out.println("Erro na linha "+t.getLine()+": "+t.getText());
-                      break;
-                  } else if(nomeToken.equals("CADEIA_NAO_FECHADA")) {
-                      System.out.println("Cadeia não fechada na linha "+t.getLine());
-                      break;
-                  } else {                
-                         System.out.println("<" + nomeToken + "," + t.getText() + ">");
-                       }             
+                if(nomeToken.equals("ERRO")) 
+                {
+                    System.out.println("Erro na linha "+t.getLine()+": "+t.getText());
+                    break;
+                } 
+                else if(nomeToken.equals("CADEIA_NAO_FECHADA")) 
+                {
+                    System.out.println("Cadeia não fechada na linha "+t.getLine());
+                    break;
+                } 
+                else 
+                {                
+                    if(nomeToken == "PALAVRA_CHAVE") 
+                    {
+                        System.out.println("<'" + t.getText() + "','" + t.getText() + "'>");
+                    }
+                    else
+                     System.out.println("<'" + t.getText() + "'," +  nomeToken + ">");
+                }             
            }
-        } catch (IOException ex) {
-        }
+        } catch (IOException ex) {}
     }
 }
