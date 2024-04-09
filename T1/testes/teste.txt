@@ -4,8 +4,8 @@ fatorial:INTEIRO
 
 :ALGORITMO
 % Calcula o fatorial de um número inteiro
-LER argumento
-ATRIBUIR argumento A fatorial
+LER 'abcd' argumento 'defg'
+ATRIBUIR argumento A fatorial 'hij'
 SE argumento = 0 ENTAO ATRIBUIR 1 A fatorial
 ENQUANTO argumento > 1
    INICIO
