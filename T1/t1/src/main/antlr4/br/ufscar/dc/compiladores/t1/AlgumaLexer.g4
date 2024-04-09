@@ -16,7 +16,7 @@ CADEIA 	: '"' ( ~('\n') )*? '"'
 fragment
 ESC_SEQ	: '\\\'';
 COMENTARIO
-    :   '{' ~('\n'|'\r')* '\r'? '}' '\n' {skip();}
+    :   '{' ~('\n'|'\r')* '\r'? '}' '\r'? '\n' {skip();}
     ;
 WS  :   ( ' '
         | '\t'
@@ -38,7 +38,10 @@ FECHAPAR:	')'
 VIRGULA	:	','
 	;
 
-CADEIA_NAO_FECHADA: '\'' (ESC_SEQ | ~('\n'|'\''|'\\'))* '\n'
+COMENTARIO_NAO_FECHADO: '{' ~('\n'|'\r')* '\r'? '\n'
+    ;
+
+CADEIA_NAO_FECHADA: '"' ( ~('\n') )*?
     ;
 
 ERRO: .
