@@ -5,12 +5,12 @@ COMENTARIO
     ;
 
 PALAVRA_CHAVE 
-	:	'declare' | 'algoritmo' | 'inteiro' | 'literal' | 'ATRIBUIR' | 'A' | 'LER' | 'IMPRIMIR' | 'SE' | 'ENTAO' 
-	| 'ENQUANTO' | 'escreva' | 'fim_algoritmo' | 'E' | 'OU' 
+	:	'declare' | 'algoritmo' | 'inteiro' | 'literal' | '<-' | 'leia' | 'se' | 'entao' | 'senao' | 'fim_se'
+	| 'escreva' | 'fim_algoritmo' | 'e' | 'ou' | 'nao' | 'real' | 'logico' | 'caso' | 'seja'
 	; 
-NUMINT	: ('+'|'-')?('0'..'9')+
+NUM_INT	: ('+'|'-')?('0'..'9')+
 	;
-NUMREAL	: ('+'|'-')?('0'..'9')+ ('.' ('0'..'9')+)?
+NUM_REAL	: ('+'|'-')?('0'..'9')+ ('.' ('0'..'9')+)?
 	;
 IDENT : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'0'..'9')*
 	 ;

@@ -42,7 +42,7 @@ public class Principal {
                 }
                 else 
                 {                
-                    if(nomeToken == "PALAVRA_CHAVE") 
+                    if(nomeToken == "PALAVRA_CHAVE" || nomeToken == "OP_ARIT" || nomeToken == "OP_REL") 
                     {
                         pw.println("<'" + t.getText() + "','" + t.getText() + "'>");
                     }
