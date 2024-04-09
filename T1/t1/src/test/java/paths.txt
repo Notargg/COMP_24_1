@@ -1,0 +1,1 @@
+sudo java -jar ~/Documents/GitHub/COMP_24_1/T1/Teste\ Automatizado/compiladores-corretor-automatico-1.0-SNAPSHOT-jar-with-dependencies.jar ~/Documents/GitHub/COMP_24_1/T1/t1/target/t1-1.0-SNAPSHOT-jar-with-dependencies.jar gcc ~/Documents/GitHub/COMP_24_1/T1/temp ~/Documents/GitHub/COMP_24_1/casos-de-teste/casos-de-teste/ "800260, 800207, 800432" -t1
