@@ -33,3 +33,9 @@ ABREPAR :	'('
 	;
 FECHAPAR:	')'
 	;
+
+CADEIA_NAO_FECHADA: '\'' (ESC_SEQ | ~('\n'|'\''|'\\'))* '\n'
+    ;
+
+ERRO: .
+    ;
