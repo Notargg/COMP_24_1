@@ -1,5 +1,8 @@
 lexer grammar AlgumaLexer;
 
+COMENTARIO
+    :   '{' ~('\n'|'\r')* '}' {skip();}
+    ;
 
 PALAVRA_CHAVE 
 	:	'declare' | 'algoritmo' | 'inteiro' | 'literal' | 'ATRIBUIR' | 'A' | 'LER' | 'IMPRIMIR' | 'SE' | 'ENTAO' 
@@ -15,9 +18,6 @@ CADEIA 	: '"' ( ~('\n') )*? '"'
 ;
 fragment
 ESC_SEQ	: '\\\'';
-COMENTARIO
-    :   '{' ~('\n'|'\r')* '\r'? '}' '\r'? '\n' {skip();}
-    ;
 WS  :   ( ' '
         | '\t'
         | '\r'
@@ -38,7 +38,7 @@ FECHAPAR:	')'
 VIRGULA	:	','
 	;
 
-COMENTARIO_NAO_FECHADO: '{' ~('\n'|'\r')* '\r'? '\n'
+COMENTARIO_NAO_FECHADO: '{' ~('\n'|'\r'|'}')* '\r'? '\n'
     ;
 
 CADEIA_NAO_FECHADA: '"' ( ~('\n') )*?

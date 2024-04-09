@@ -4,13 +4,21 @@ import java.io.IOException;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.Token;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class Principal {
 
     public static void main(String[] args) {
-        try {
+
+        String arquivoEntrada = args[0];
+        String arquivoSaida = args[1];
+        System.out.println(arquivoSaida);
+        
+        try (PrintWriter pw = new PrintWriter(arquivoSaida))
+        {
             // args[0] é o primeiro argumento da linha de comando
-            CharStream cs = CharStreams.fromFileName(args[0]);
+            CharStream cs = CharStreams.fromFileName(arquivoEntrada);
             AlgumaLexer lex = new AlgumaLexer(cs);
 
             Token t = null;
@@ -19,29 +27,31 @@ public class Principal {
                 String nomeToken = AlgumaLexer.VOCABULARY.getDisplayName(t.getType());
                 if(nomeToken.equals("ERRO")) 
                 {
-                    System.out.println("Erro na linha "+t.getLine()+": "+t.getText() + " - simbolo nao identificado");
+                    pw.println("Erro na linha "+t.getLine()+": "+t.getText() + " - simbolo nao identificado");
                     break;
                 } 
                 else if(nomeToken.equals("CADEIA_NAO_FECHADA")) 
                 {
-                    System.out.println("Cadeia não fechada na linha "+t.getLine() + " - cadeia literal nao fechada");
+                    pw.println("Cadeia não fechada na linha "+t.getLine() + " - cadeia literal nao fechada");
                     break;
                 } 
                 else if(nomeToken.equals("COMENTARIO_NAO_FECHADO")) 
                 {
-                    System.out.println("Comentario nao fechado na linha "+t.getLine() + " - comentario nao fechado");
+                    pw.println("Comentario nao fechado na linha "+t.getLine() + " - comentario nao fechado");
                     break;
                 }
                 else 
                 {                
                     if(nomeToken == "PALAVRA_CHAVE") 
                     {
-                        System.out.println("<'" + t.getText() + "','" + t.getText() + "'>");
+                        pw.println("<'" + t.getText() + "','" + t.getText() + "'>");
                     }
                     else
-                     System.out.println("<'" + t.getText() + "'," +  nomeToken + ">");
+                        pw.println("<'" + t.getText() + "'," +  nomeToken + ">");
                 }             
            }
-        } catch (IOException ex) {}
+        } catch (IOException ex) {
+            System.err.println("O arquivo/diretório não existe:"+args[1]);
+        }
     }
 }
