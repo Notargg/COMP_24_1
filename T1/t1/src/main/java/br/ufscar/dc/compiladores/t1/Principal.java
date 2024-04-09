@@ -27,6 +27,11 @@ public class Principal {
                     System.out.println("Cadeia não fechada na linha "+t.getLine() + " - cadeia literal nao fechada");
                     break;
                 } 
+                else if(nomeToken.equals("COMENTARIO_NAO_FECHADO")) 
+                {
+                    System.out.println("Comentario nao fechado na linha "+t.getLine() + " - comentario nao fechado");
+                    break;
+                }
                 else 
                 {                
                     if(nomeToken == "PALAVRA_CHAVE") 
