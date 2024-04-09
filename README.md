@@ -67,7 +67,7 @@ sudo apt install code
 
 # T1
 
-- Para abrir o trabalho, será preciso realizar uma série de etapas:
+- Para abrir o trabalho, será preciso realizar uma série de etapas, especificadas através do roteiro desenvolvido pelo próprio professor https://github.com/dlucredio/cursocompiladores/blob/master/exemplosCodigo/Compiladores.Tópico02.Análise%20Léxica.roteiro.md:
 
 1. Abrir o repositório, entrar na pasta T1 e abri-la pela sua IDE de preferência.
 2. Com o projeto aberto, entrar na pasta t1 e abrir o terminal
@@ -88,8 +88,8 @@ mvn clean
 # Buildar
 mvn package
 
-# Rodar - Mudar até o final
-java -jar {PATH ATÈ A PASTA}\COMP_24_1\T1\t1\target\t1-1.0-SNAPSHOT-jar-with-dependencies.jar  {PATH ATÉ A PASTA}\COMP_24_1\T1\testes\teste.txt
+# Rodar - a 
+java -jar {PATH ATÈ A PASTA}\COMP_24_1\T1\t1\target\t1-1.0-SNAPSHOT-jar-with-dependencies.jar  {PATH ATÉ O ARQUIVO PARA O ANALISADOR LEXICO}
 
 ```
 
