@@ -2,9 +2,9 @@
 
 algoritmo
 	declare
-		nome: literal
+		nome : literal
 	declare
-		idade: inteiro
+		idade : inteiro
 
 	{ leitura de nome e idade do teclado }
 	leia(nome)

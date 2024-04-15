@@ -27,26 +27,29 @@ public class Principal {
                 String nomeToken = AlgumaLexer.VOCABULARY.getDisplayName(t.getType());
                 if(nomeToken.equals("ERRO")) 
                 {
-                    pw.println("Erro na linha "+t.getLine()+": "+t.getText() + " - simbolo nao identificado");
+                    pw.println("Linha "+t.getLine()+": "+t.getText() + " - simbolo nao identificado");
                     break;
                 } 
                 else if(nomeToken.equals("CADEIA_NAO_FECHADA")) 
                 {
-                    pw.println("Cadeia não fechada na linha "+t.getLine() + " - cadeia literal nao fechada");
+                    pw.println("Linha "+t.getLine() + ": cadeia literal nao fechada");
                     break;
                 } 
                 else if(nomeToken.equals("COMENTARIO_NAO_FECHADO")) 
                 {
-                    pw.println("Comentario nao fechado na linha "+t.getLine() + " - comentario nao fechado");
+                    pw.println("Linha "+t.getLine() + ": comentario nao fechado");
                     break;
                 }
                 else 
-                {                
+                {  
+                        
                     if(nomeToken == "PALAVRA_CHAVE" || nomeToken == "OP_ARIT" || nomeToken == "OP_REL") 
                     {
                         pw.println("<'" + t.getText() + "','" + t.getText() + "'>");
                     }
                     else
+
+
                         pw.println("<'" + t.getText() + "'," +  nomeToken + ">");
                 }             
            }
