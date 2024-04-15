@@ -88,11 +88,15 @@ mvn clean
 # Buildar
 mvn package
 
-# Rodar - a 
-java -jar {PATH ATÈ A PASTA}\COMP_24_1\T1\t1\target\t1-1.0-SNAPSHOT-jar-with-dependencies.jar  {PATH ATÉ O ARQUIVO PARA O ANALISADOR LEXICO}
+# Rodar - a - INDIVIDUALMENTE
+java -jar {PATH ATÈ A PASTA}\COMP_24_1\T1\t1\target\t1-1.0-SNAPSHOT-jar-with-dependencies.jar  {PATH ATÉ O ARQUIVO DE ENTRADA} {PATH ATÉ O ARQUIVO DE SAÍDA}
+
+# Exemplo c:\java -jar c:\compilador\meu-compilador.jar c:\casos-de-teste\arquivo1.txt c:\temp\saida.txt
+
+
 
 ```
+- Afim de seguir a correção automatica dada pelo professor, seguir o passo a passo do link: https://github.com/dlucredio/compiladores-corretor-automatico/blob/master/Compiladores.CorretorT1T2T3.docx.pdf
 
 
 
-java -jar \Users\ggrat\OneDrive\Documentos\GitHub\COMP_24_1\T1\t1\target\t1-1.0-SNAPSHOT-jar-with-dependencies.jar \Users\ggrat\OneDrive\Documentos\GitHub\COMP_24_1\T1\testes\teste.txt
