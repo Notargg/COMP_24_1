@@ -1,5 +1,6 @@
 lexer grammar AlgumaLexer;
 
+// Definição de Escape
 
 fragment
 ESC_SEQ	: '\\\'';
