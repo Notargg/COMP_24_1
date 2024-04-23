@@ -1,0 +1,41 @@
+<''algoritmo'',algoritmo>
+<''declare'',declare>
+<'IDENT',prenome>
+<'','',,>
+<'IDENT',sobrenome>
+<'','',,>
+<'IDENT',formato1>
+<'','',,>
+<'IDENT',formato2>
+<'':'',:>
+<''literal'',literal>
+<''leia'',leia>
+<''('',(>
+<'IDENT',prenome>
+<'','',,>
+<'IDENT',sobrenome>
+<'')'',)>
+<'IDENT',formato1>
+<''<-'',<->
+<'IDENT',prenome>
+<''+'',+>
+<'CADEIA'," ">
+<''+'',+>
+<'IDENT',sobrenome>
+<'IDENT',formato2>
+<''<-'',<->
+<'IDENT',sobrenome>
+<''+'',+>
+<'CADEIA',", ">
+<''+'',+>
+<'IDENT',subLiteral>
+<''('',(>
+<'IDENT',prenome>
+<'','',,>
+<'NUM_INT',1>
+<'','',,>
+<'NUM_INT',1>
+<'')'',)>
+<''+'',+>
+<'CADEIA',".">
+Linha 14: comentario nao fechado
