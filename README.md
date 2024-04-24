@@ -98,5 +98,38 @@ java -jar {PATH ATÈ A PASTA}\COMP_24_1\T1\t1\target\t1-1.0-SNAPSHOT-jar-with-de
 ```
 - Afim de seguir a correção automatica dada pelo professor, seguir o passo a passo do link: https://github.com/dlucredio/compiladores-corretor-automatico/blob/master/Compiladores.CorretorT1T2T3.docx.pdf
 
+# T2
+
+- Para abrir o trabalho, será preciso realizar uma série de etapas, especificadas através do roteiro desenvolvido pelo próprio professor https://github.com/dlucredio/cursocompiladores/blob/master/exemplosCodigo/Compiladores.Tópico06.Análise%20Sintática%20Conclusão.roteiro.md:
+
+1. Abrir o repositório, entrar na pasta T2 e abri-la pela sua IDE de preferência.
+2. Com o projeto aberto, entrar na pasta t2 e abrir o terminal
+3. Ao abrir, verifique a presença do Java e do Maven e suas respectivas versões digitando no terminal os seguintes comandos.
+
+```
+java --version
+mvn -v
+``` 
+
+4. Caso tenha dado errado ou as versões não batam, volte para as Considerações Iniciais. Com tudo certo, prossiga.
+5. Para garantir, execute na seguinte ordem
+
+```
+# Limpar o mvn - Apenas para garantir
+mvn clean
+
+# Buildar
+mvn package
+
+# Rodar - a - INDIVIDUALMENTE
+java -jar {PATH ATÈ A PASTA}\COMP_24_1\T1\t1\target\t1-1.0-SNAPSHOT-jar-with-dependencies.jar  {PATH ATÉ O ARQUIVO DE ENTRADA} {PATH ATÉ O ARQUIVO DE SAÍDA}
+
+# Exemplo c:\java -jar c:\compilador\meu-compilador.jar c:\casos-de-teste\arquivo1.txt c:\temp\saida.txt 
+
+
+
+```
+- Afim de seguir a correção automatica dada pelo professor, seguir o passo a passo do link: https://github.com/dlucredio/compiladores-corretor-automatico/blob/master/Compiladores.CorretorT1T2T3.docx.pdf
+
 
 
