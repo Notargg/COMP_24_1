@@ -1,9 +1,10 @@
 grammar T2;
 
 	
+// Definição de Escape
+
 fragment
-ESC_SEQ
-	:	'\\\'';
+ESC_SEQ	: '\\\'';
 
 // Definição de Número para o AL
 
@@ -41,6 +42,7 @@ CADEIA :  '"' (~( '"'|'\\' |'\n'|'\r')| ESC_SEQ)* '"'
 CADEIA_NAO_FECHADA: '"' (~( '"'|'\\' |'\n'|'\r')| ESC_SEQ)* '\r'? '\n'?
     ;
 
+// Declaração - Cópia - da Gramática
 
 
 programa: declaracoes 'algoritmo' corpo 'fim_algoritmo' EOF;
@@ -93,3 +95,8 @@ fator_logico: 'nao'? parcela_logica;
 parcela_logica: 'verdadeiro' | 'falso' | exp_relacional;
 op_logico_1: 'ou';
 op_logico_2: 'e';
+
+// Definição final de Erro
+
+ERRO: .
+    ;

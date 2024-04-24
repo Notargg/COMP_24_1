@@ -26,7 +26,7 @@ public class T2Parser extends Parser {
 		T__45=46, T__46=47, T__47=48, T__48=49, T__49=50, T__50=51, T__51=52, 
 		T__52=53, T__53=54, T__54=55, T__55=56, T__56=57, T__57=58, T__58=59, 
 		NUM_INT=60, NUM_REAL=61, IDENT=62, WS=63, COMENTARIO=64, COMENTARIO_NAO_FECHADO=65, 
-		CADEIA=66, CADEIA_NAO_FECHADA=67;
+		CADEIA=66, CADEIA_NAO_FECHADA=67, ERRO=68;
 	public static final int
 		RULE_programa = 0, RULE_declaracoes = 1, RULE_declaracao_local = 2, RULE_variavel = 3, 
 		RULE_identificador = 4, RULE_dimensao = 5, RULE_tipo = 6, RULE_tipo_basico = 7, 
@@ -79,7 +79,7 @@ public class T2Parser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			"NUM_INT", "NUM_REAL", "IDENT", "WS", "COMENTARIO", "COMENTARIO_NAO_FECHADO", 
-			"CADEIA", "CADEIA_NAO_FECHADA"
+			"CADEIA", "CADEIA_NAO_FECHADA", "ERRO"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -3344,7 +3344,7 @@ public class T2Parser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001C\u0208\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001D\u0208\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
