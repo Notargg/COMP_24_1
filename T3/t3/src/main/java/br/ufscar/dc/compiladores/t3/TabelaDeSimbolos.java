@@ -3,11 +3,19 @@ package br.ufscar.dc.compiladores.t3;
 import java.util.HashMap;
 import java.util.Map;
 
+
+// Classe que representa a tabela de símbolos - Professor MODIFICADO
 public class TabelaDeSimbolos {
     public enum TipoAlguma {
         INTEIRO,
         REAL,
-        INVALIDO
+        INVALIDO,
+
+        // Tipos de variáveis - Adicionadas
+        CADEIA,
+        LOGICO,
+        TIPO,
+        IDENT
     }
     
     class EntradaTabelaDeSimbolos {

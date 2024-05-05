@@ -1,7 +1,5 @@
 package br.ufscar.dc.compiladores.t3;
 
-import br.ufscar.dc.compiladores.t3.AlgumaParser.ProgramaContext;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -36,21 +34,17 @@ public class Principal {
     AlgumaSemantico as = new AlgumaSemantico();
     as.visitPrograma(arvore);
 
-    Iterator<String> iterator = AlgumaSemanticoUtils.errosSemanticos.iterator();
-
-    // Loop para achar os erros
-    while ((iterator.hasNext())) {
-        String erro = iterator.next();
-        pw.println(erro);
+    for(String error: AlgumaSemanticoUtils.errosSemanticos){
+        pw.println(error);
     }
-
 
     // Imprimir o fim da compilação e terminar
     pw.println("Fim da compilacao");
+
     pw.close();
 
     }catch (IOException e) {
-        e.printStackTrace(); // Tratamento de erro
+        System.out.println("Erro na escrita do arquivo");
     }
     
 
