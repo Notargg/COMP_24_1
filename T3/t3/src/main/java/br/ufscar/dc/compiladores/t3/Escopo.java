@@ -33,5 +33,6 @@ public class Escopo {
     public List<TabelaDeSimbolos> getPilhaTabela(){
         return  pilhaTabela;
     }
+
     
 }

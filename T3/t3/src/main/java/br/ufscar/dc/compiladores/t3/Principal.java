@@ -34,6 +34,7 @@ public class Principal {
     AlgumaSemantico as = new AlgumaSemantico();
     as.visitPrograma(arvore);
 
+    // Printar os erros adicionados da árvore
     for(String error: AlgumaSemanticoUtils.errosSemanticos){
         pw.println(error);
     }

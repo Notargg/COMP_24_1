@@ -2,7 +2,9 @@ package br.ufscar.dc.compiladores.t3;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.antlr.v4.runtime.Token;
+
 import br.ufscar.dc.compiladores.t3.AlgumaParser.Exp_aritmeticaContext;
 import br.ufscar.dc.compiladores.t3.AlgumaParser.ExpressaoContext;
 import br.ufscar.dc.compiladores.t3.AlgumaParser.FatorContext;
@@ -10,7 +12,7 @@ import br.ufscar.dc.compiladores.t3.AlgumaParser.Fator_logicoContext;
 import br.ufscar.dc.compiladores.t3.AlgumaParser.ParcelaContext;
 import br.ufscar.dc.compiladores.t3.AlgumaParser.TermoContext;
 import br.ufscar.dc.compiladores.t3.AlgumaParser.Termo_logicoContext;
-import java.util.Iterator;
+
 
 public class AlgumaSemanticoUtils {
 
@@ -19,13 +21,14 @@ public class AlgumaSemanticoUtils {
     
     public static void adicionarErroSemantico(Token t, String mensagem) {
         int linha = t.getLine();
+        // Mensagem de Erro
         errosSemanticos.add(String.format("Linha %d: %s", linha, mensagem));
         
     }
 
     // Verifica tipos de expressões - Professor Modificado
     
-    public static TabelaDeSimbolos.TipoAlguma verificarTipo(Escopo escopo, AlgumaParser.ExpressaoContext ctx) {
+    public static TabelaDeSimbolos.TipoAlguma verificarTipo(Escopo escopo, AlgumaParser.ExpressaoContext ctx)  {
         
         TabelaDeSimbolos.TipoAlguma ret = null;
         // Para cada expressão aritmético, verifica o tipo
@@ -221,23 +224,25 @@ public class AlgumaSemanticoUtils {
 
     // Verificar tipos de parcelas
 
-    public static TabelaDeSimbolos.TipoAlguma verificarTipo(Escopo escopo, AlgumaParser.ParcelaContext ctx) {
+    public static TabelaDeSimbolos.TipoAlguma verificarTipo(Escopo escopo, AlgumaParser.ParcelaContext ctx)  {
 
         TabelaDeSimbolos.TipoAlguma ret = null;
 
         // Tipos de Parcelas
 
-        if(ctx.parcela_unario() == null) {
+        if(ctx.parcela_nao_unario() != null) {
 
             // Verifica o tipo da parcela unário
 
-            ret = verificarTipo(escopo, ctx.parcela_unario());
+            // ret = verificarTipo(escopo, ctx.parcela_unario());
+            ret = verificarTipo(escopo, ctx.parcela_nao_unario());
 
         }else{
                 
             // Verifica o tipo da parcela não unário
     
-            ret = verificarTipo(escopo, ctx.parcela_nao_unario());
+            //ret = verificarTipo(escopo, ctx.parcela_nao_unario());
+            ret = verificarTipo(escopo, ctx.parcela_unario());
         }
 
         
@@ -246,7 +251,7 @@ public class AlgumaSemanticoUtils {
 
     // Verificar tipo de parcela não unaria
 
-    public static TabelaDeSimbolos.TipoAlguma verificarTipo(Escopo escopo, AlgumaParser.Parcela_nao_unarioContext ctx) {
+    public static TabelaDeSimbolos.TipoAlguma verificarTipo(Escopo escopo,AlgumaParser.Parcela_nao_unarioContext ctx) {
 
         if(ctx.identificador() != null) {
 
@@ -292,6 +297,7 @@ public class AlgumaSemanticoUtils {
 
         }
 
+        System.out.println(nomeVar);
         return ret;
     }
 
@@ -333,7 +339,7 @@ public class AlgumaSemanticoUtils {
 
                 if(ret == null) {
                     ret = aux;
-                }else if(ret != aux && aux != TabelaDeSimbolos.TipoAlguma.INVALIDO) {
+                }else if (ret != aux && aux != TabelaDeSimbolos.TipoAlguma.INVALIDO) {
                     ret = TabelaDeSimbolos.TipoAlguma.INVALIDO;
                 }
             }
@@ -353,7 +359,7 @@ public class AlgumaSemanticoUtils {
 
                 if(ret == null) {
                     ret = aux;
-                }else if(ret != aux && aux != TabelaDeSimbolos.TipoAlguma.INVALIDO) {
+                }else if (ret != aux && aux != TabelaDeSimbolos.TipoAlguma.INVALIDO){
                     ret = TabelaDeSimbolos.TipoAlguma.INVALIDO;
                 }
             }

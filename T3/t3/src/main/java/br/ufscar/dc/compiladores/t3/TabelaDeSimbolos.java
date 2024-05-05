@@ -17,6 +17,8 @@ public class TabelaDeSimbolos {
         TIPO,
         IDENT
     }
+
+    // Restante foi dado pelo Professor
     
     class EntradaTabelaDeSimbolos {
         String nome;

@@ -16,6 +16,13 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
 
     Escopo escopo = new Escopo();
 
+    // visitCorpo
+
+    @Override
+    public Object visitPrograma(ProgramaContext ctx) {
+        return super.visitPrograma(ctx);
+    }
+
     // Classe do Professor de Declarações Modificada
 
     // Declaração constante
@@ -23,10 +30,10 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
     @Override
     public Object visitDeclaracao_constante(Declaracao_constanteContext ctx) {
 
-        TabelaDeSimbolos tabela = escopo.getEscopo();
+        TabelaDeSimbolos tabela = escopo.getEscopo(); // Pegar o peek
 
         if(tabela.existe(ctx.IDENT().getText())){
-            AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, "constante" + ctx.IDENT().getText()+ " ja declarado anteriormente");
+            AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, "constante" + ctx.IDENT().getText()+ " ja declarado anteriormente"); // Erro
         } else {
             TabelaDeSimbolos.TipoAlguma tipo = TabelaDeSimbolos.TipoAlguma.INTEIRO;
 
@@ -48,10 +55,26 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
                     break;
             }
             
-            tabela.adicionar(ctx.IDENT().getText(), tipo);
+            tabela.adicionar(ctx.IDENT().getText(), tipo); // Colocar na tabela o tipo
         }
 
         return super.visitDeclaracao_constante(ctx);
+    }
+
+    // Declaração Tipo
+    @Override
+    public Object visitDeclaracao_tipo(Declaracao_tipoContext ctx){
+
+        TabelaDeSimbolos tabela = escopo.getEscopo(); // Pegar o peek
+
+        if(tabela.existe(ctx.IDENT().getText())){
+
+            AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, "tipo " + ctx.IDENT().getText()+ " declarado duas vezes num mesmo escopo"); // Erro
+           
+        }else{
+            tabela.adicionar(ctx.IDENT().getText(), TabelaDeSimbolos.TipoAlguma.TIPO); // Colocar na tabela o tipo
+        }  
+        return super.visitDeclaracao_tipo(ctx);
     }
 
     // Declaração variavel
@@ -59,11 +82,11 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
     @Override
     public Object visitDeclaracao_variavel(AlgumaParser.Declaracao_variavelContext ctx) {
 
-        TabelaDeSimbolos tabela = escopo.getEscopo();
+        TabelaDeSimbolos tabela = escopo.getEscopo(); // Pegar o peek
 
        for ( IdentificadorContext ident : ctx.variavel().identificador()) {
            if(tabela.existe(ident.getText())){
-               AlgumaSemanticoUtils.adicionarErroSemantico(ident.start, "identificador " + ident.getText()+ " ja declarado anteriormente");
+               AlgumaSemanticoUtils.adicionarErroSemantico(ident.start, "identificador " + ident.getText()+ " ja declarado anteriormente"); // Erro
            } else {
 
                TabelaDeSimbolos.TipoAlguma tipo = TabelaDeSimbolos.TipoAlguma.INTEIRO;
@@ -84,9 +107,12 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
                    case "logico":
                        tipo = TabelaDeSimbolos.TipoAlguma.LOGICO;
                        break;
+               
+                   default:
+                       break;
                }
                
-               tabela.adicionar(ident.getText(), tipo);
+               tabela.adicionar(ident.getText(), tipo); // Colocar na tabela o tipo
            }
 
         
@@ -100,13 +126,13 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
     @Override
     public Object visitDeclaracao_global(Declaracao_globalContext ctx){
 
-        TabelaDeSimbolos tabela = escopo.getEscopo();
+        TabelaDeSimbolos tabela = escopo.getEscopo(); // Pegar o peek
 
         if(tabela.existe(ctx.IDENT().getText())){
-            AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, ctx.IDENT().getText()+ " ja declarado anteriormente");
+            AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, ctx.IDENT().getText()+ " ja declarado anteriormente"); // Erro
         } else {
 
-            tabela.adicionar(ctx.IDENT().getText(), TabelaDeSimbolos.TipoAlguma.TIPO);
+            tabela.adicionar(ctx.IDENT().getText(), TabelaDeSimbolos.TipoAlguma.TIPO); // Colocar na tabela o tipo
 
         }
 
@@ -121,11 +147,11 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
 
         if(ctx.IDENT() != null){
 
-            for(TabelaDeSimbolos escopos : escopo.getPilhaTabela()){
+            for(TabelaDeSimbolos escopos : escopo.getPilhaTabela()){ // Verificar se o tipo existe
 
                 if(!escopos.existe(ctx.IDENT().getText())){
 
-                    AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, "tipo " + ctx.IDENT().getText()+ " nao declarado");
+                    AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, "tipo " + ctx.IDENT().getText()+ " nao declarado"); // Erro
 
                 }
 
@@ -142,7 +168,7 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
     @Override
     public Object visitIdentificador(IdentificadorContext ctx) {
 
-        for(TabelaDeSimbolos escopos : escopo.getPilhaTabela()){
+        for(TabelaDeSimbolos escopos : escopo.getPilhaTabela()){ // Verificar se o identificador existe
 
             if(!escopos.existe(ctx.IDENT(0).getText())){
 
@@ -160,9 +186,9 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
     @Override
     public Object visitCmdAtribuicao(CmdAtribuicaoContext ctx){
 
-        TabelaDeSimbolos.TipoAlguma tipo = AlgumaSemanticoUtils.verificarTipo(escopo, ctx.expressao());
+        TabelaDeSimbolos.TipoAlguma tipo = AlgumaSemanticoUtils.verificarTipo(escopo, ctx.expressao()); // Verificar o tipo
 
-        boolean erro = false;
+        boolean erro = false; // Se já tem erro
         String var = ctx.identificador().getText();
 
         if(tipo != TabelaDeSimbolos.TipoAlguma.INVALIDO){
@@ -171,7 +197,9 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
 
                 if(escopos.existe(var)){
 
-                    TabelaDeSimbolos.TipoAlguma tipoVar = AlgumaSemanticoUtils.verificarTipo(escopo, var);
+                    TabelaDeSimbolos.TipoAlguma tipoVar = AlgumaSemanticoUtils.verificarTipo(escopo, var); // Verificar o tipo da var
+
+                    // Pegar os tipos
                     Boolean expNumeric = tipo == TabelaDeSimbolos.TipoAlguma.INTEIRO || tipo == TabelaDeSimbolos.TipoAlguma.REAL;
                     Boolean varNumeric = tipoVar == TabelaDeSimbolos.TipoAlguma.INTEIRO || tipoVar == TabelaDeSimbolos.TipoAlguma.REAL;
 
@@ -193,7 +221,7 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
 
         if(erro){
                 
-                AlgumaSemanticoUtils.adicionarErroSemantico(ctx.identificador().start,"atribuicao nao compativel para " + var);
+                AlgumaSemanticoUtils.adicionarErroSemantico(ctx.identificador().start,"atribuicao nao compativel para " + var); // Erro
     
             }
         
