@@ -1,17 +1,17 @@
-package br.ufscar.dc.compiladores.t4;
+package br.ufscar.dc.compiladores.t5;
 
-import br.ufscar.dc.compiladores.t4.TabelaDeSimbolos.EntradaTabelaDeSimbolos;
-import br.ufscar.dc.compiladores.t4.TabelaDeSimbolos.TipoAlguma;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Declaracao_constanteContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Declaracao_variavelContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Declaracao_globalContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Declaracao_tipoContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.ProgramaContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.IdentificadorContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.ParametroContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Tipo_basico_identContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.VariavelContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Parcela_unarioContext;
+import br.ufscar.dc.compiladores.t5.TabelaDeSimbolos.EntradaTabelaDeSimbolos;
+import br.ufscar.dc.compiladores.t5.TabelaDeSimbolos.TipoAlguma;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Declaracao_constanteContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Declaracao_variavelContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Declaracao_globalContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Declaracao_tipoContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.ProgramaContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.IdentificadorContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.ParametroContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Tipo_basico_identContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.VariavelContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Parcela_unarioContext;
 
 
 import java.util.ArrayList;
@@ -19,10 +19,10 @@ import java.util.List;
 
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import br.ufscar.dc.compiladores.t4.AlgumaParser.CmdAtribuicaoContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.CmdAtribuicaoContext;
 
 // Novos import
-import br.ufscar.dc.compiladores.t4.AlgumaParser.CmdRetorneContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.CmdRetorneContext;
 
 
 public class AlgumaSemantico extends AlgumaBaseVisitor {

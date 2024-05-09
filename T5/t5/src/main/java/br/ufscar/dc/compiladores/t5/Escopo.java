@@ -1,4 +1,4 @@
-package br.ufscar.dc.compiladores.t4;
+package br.ufscar.dc.compiladores.t5;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,6 +12,13 @@ public class Escopo {
     public Escopo(TabelaDeSimbolos.TipoAlguma tipo){
         pilhaTabela = new LinkedList<>();
         novoEscopo(tipo);
+    }
+
+    // Contrutor Adicionar T5
+
+    public Escopo(TabelaDeSimbolos tabela){
+        pilhaTabela = new LinkedList<>();
+        pilhaTabela.push(tabela);
     }
 
     // Criação de novo Escopo

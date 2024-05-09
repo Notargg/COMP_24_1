@@ -1,4 +1,4 @@
-package br.ufscar.dc.compiladores.t4;
+package br.ufscar.dc.compiladores.t5;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -59,6 +59,13 @@ public class TabelaDeSimbolos {
         this.tipo = tipo; // T4 
     }
 
+    // T5 - se precisar acessa direto
+
+    public TabelaDeSimbolos(){
+        tabela = new HashMap<>();
+        tabelaTipo = new HashMap<>();
+    }
+
     public void adicionar(String nome, TipoAlguma tipo, StructAlguma struct) {
         tabela.put(nome, new EntradaTabelaDeSimbolos(nome, tipo, struct)); // Adicionado struct
     }
@@ -91,7 +98,9 @@ public class TabelaDeSimbolos {
     }
     
     public TipoAlguma verificar(String nome) {
-        return tabela.get(nome).tipo;
+        if(tabela.containsKey(nome))
+            return tabela.get(nome).tipo;
+        return null;
     }
 
 }

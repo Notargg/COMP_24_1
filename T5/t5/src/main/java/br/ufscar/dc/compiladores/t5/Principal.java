@@ -1,4 +1,4 @@
-package br.ufscar.dc.compiladores.t4;
+package br.ufscar.dc.compiladores.t5;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,8 +38,22 @@ public class Principal {
         pw.println(error);
     }
 
+    // Adicionar a geração de código - T5
+
+    if(AlgumaSemanticoUtils.errosSemanticos.isEmpty()){
+        AlgumaGeradorC agc = new AlgumaGeradorC();
+        agc.visitPrograma(arvore);
+        try(PrintWriter p = new PrintWriter(args[1])) {
+            p.print(agc.saida.toString());
+            p.close();
+        }
+        
+    }
+
+    // declaracao_local_global
+
     // Imprimir o fim da compilação e terminar
-    pw.println("Fim da compilacao");
+    // pw.println("Fim da compilacao");
 
     pw.close();
 

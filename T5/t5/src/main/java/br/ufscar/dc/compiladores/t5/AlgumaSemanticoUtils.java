@@ -1,17 +1,17 @@
-package br.ufscar.dc.compiladores.t4;
+package br.ufscar.dc.compiladores.t5;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.antlr.v4.runtime.Token;
 
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Exp_aritmeticaContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.ExpressaoContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.FatorContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Fator_logicoContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.ParcelaContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.TermoContext;
-import br.ufscar.dc.compiladores.t4.AlgumaParser.Termo_logicoContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Exp_aritmeticaContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.ExpressaoContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.FatorContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Fator_logicoContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.ParcelaContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.TermoContext;
+import br.ufscar.dc.compiladores.t5.AlgumaParser.Termo_logicoContext;
 
 
 public class AlgumaSemanticoUtils {
@@ -398,5 +398,37 @@ public class AlgumaSemanticoUtils {
     
     }
 
+    // Funções para ajudar no T5
+    // Pegar os tipos de um código C - Formato String
+
+    public static String getTipoC(String tipo) {
+
+        switch(tipo) {
+            case "inteiro": 
+                return "int";
+            case "real": 
+                return "float";
+            case "literal": 
+                return "char*";
+            default:
+                return null;
+        }
+    }
+
+    // Pegar os tipos de um código C - Formato TipoAlguma
+
+    public static String getTipoAlgumaC(TabelaDeSimbolos.TipoAlguma tipo) {
+
+        switch(tipo) {
+            case INTEIRO: 
+                return "d";
+            case REAL: 
+                return "f";
+            case CADEIA: 
+                return "s";
+            default:
+                return null;
+        }
+    }
 
 }
