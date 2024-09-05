@@ -1,7 +1,7 @@
 package br.ufscar.dc.compiladores.t6;
 
 import br.ufscar.dc.compiladores.t6.TabelaDeSimbolos.TipoAlguma;
-import br.ufscar.dc.compiladores.t6.AlgumaParser.Declaracao_constanteContext;
+import br.ufscar.dc.compiladores.t6.AlgumaParser.Declaracao_agenteContext;
 import br.ufscar.dc.compiladores.t6.AlgumaParser.Declaracao_variavelContext;
 import br.ufscar.dc.compiladores.t6.AlgumaParser.Declaracao_globalContext;
 import br.ufscar.dc.compiladores.t6.AlgumaParser.Declaracao_tipoContext;
@@ -25,40 +25,26 @@ public class AlgumaSemantico extends AlgumaBaseVisitor {
 
     // Classe do Professor de Declarações Modificada
 
-    // Declaração constante
+    // Declaração agente
 
     @Override
-    public Object visitDeclaracao_constante(Declaracao_constanteContext ctx) {
+    public Object visitDeclaracao_agente(Declaracao_agenteContext ctx) {
 
         TabelaDeSimbolos tabela = escopo.getEscopo(); // Pegar o peek
 
         if(tabela.existe(ctx.IDENT().getText())){
-            AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, "constante" + ctx.IDENT().getText()+ " ja declarado anteriormente"); // Erro
+            AlgumaSemanticoUtils.adicionarErroSemantico(ctx.start, "agente" + ctx.IDENT().getText()+ " ja declarado anteriormente"); // Erro
         } else {
-            TabelaDeSimbolos.TipoAlguma tipo = TabelaDeSimbolos.TipoAlguma.INTEIRO;
+            TabelaDeSimbolos.TipoAlguma tipo = TabelaDeSimbolos.TipoAlguma.AGENTE;
 
             // Escolher os tipos de acordo com o texto
 
-            switch (ctx.tipo_basico().getText()) 
-            {
-                case "literal":
-                    tipo = TabelaDeSimbolos.TipoAlguma.CADEIA;
-                    break;
-                case "real":
-                    tipo = TabelaDeSimbolos.TipoAlguma.REAL;
-                    break;
-                case "inteiro":
-                    tipo = TabelaDeSimbolos.TipoAlguma.INTEIRO;
-                    break;
-                case "logico":
-                    tipo = TabelaDeSimbolos.TipoAlguma.LOGICO;
-                    break;
-            }
+            tipo = TabelaDeSimbolos.TipoAlguma.AGENTE;
             
             tabela.adicionar(ctx.IDENT().getText(), tipo); // Colocar na tabela o tipo
         }
 
-        return super.visitDeclaracao_constante(ctx);
+        return super.visitDeclaracao_agente(ctx);
     }
 
     // Declaração Tipo

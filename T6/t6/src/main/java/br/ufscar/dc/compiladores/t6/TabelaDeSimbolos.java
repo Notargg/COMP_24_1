@@ -13,7 +13,10 @@ public class TabelaDeSimbolos {
         CADEIA,
         LOGICO,
         TIPO,
-        IDENT
+        IDENT,
+        AGENTE,
+        MAPA,
+        SINERGIA
     }
 
     // Restante foi dado pelo Professor
