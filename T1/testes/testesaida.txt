@@ -1,0 +1,18 @@
+<':',':'>
+<'DECLARACOES',IDENT>
+<'argumento',IDENT>
+<':',':'>
+<'INTEIRO',IDENT>
+<'fatorial',IDENT>
+<':',':'>
+<'INTEIRO',IDENT>
+<':',':'>
+<'ALGORITMO',IDENT>
+<'%','%'>
+<'Calcula',IDENT>
+<'o',IDENT>
+<'fatorial',IDENT>
+<'de',IDENT>
+<'um',IDENT>
+<'n',IDENT>
+Linha 6: ú - simbolo nao identificado
